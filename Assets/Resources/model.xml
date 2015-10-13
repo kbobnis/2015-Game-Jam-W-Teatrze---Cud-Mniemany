@@ -1,7 +1,7 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
-		<scene mainPath="scene1" time="100" enemies="10" >
+		<scene pathPrefix="scene1/" time="100" enemies="10" >
 			<layers>
 				<layer path="layers/widownia" />
 				<layer path="layers/widownia" />
@@ -40,7 +40,7 @@
 				<word text="dobro" />
 			</words>
 		</scene>
-		<scene mainPath="scene2" time="90" enemies="10" >
+		<scene pathPrefix="scene2/" time="90" enemies="10" >
 			<layers>
 				<layer path="layers/widownia" />
 				<layer path="layers/widownia" />

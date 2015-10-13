@@ -19,7 +19,6 @@ public class Scene
 		EnemiesParty1 = enemiesParty1;
 		EnemiesParty2 = enemiesParty2;
 		Words = words;
-		Debug.Log("Created scene with time: " + time + ", enemies count: " + enemiesCount);
 	}
 
 }

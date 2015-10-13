@@ -10,7 +10,6 @@ public class Game : MonoBehaviour
 		XMLLoader xmlLoader = new XMLLoader();
 		
 		GameModel gameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
-
 	}
 	
 }

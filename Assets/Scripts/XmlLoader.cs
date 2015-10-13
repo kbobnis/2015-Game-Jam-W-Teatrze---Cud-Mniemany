@@ -28,6 +28,7 @@ public class XMLLoader
 	{
 		int time = int.Parse(sceneXml.Attributes["time"].Value);
 		int enemiesCount = int.Parse(sceneXml.Attributes["enemies"].Value);
+		string pathPrefix = sceneXml.Attributes["pathPrefix"].Value;
 		
 		List<Layer> layers = null;
 		List<Enemy> enemiesParty1 = null;
@@ -40,9 +41,8 @@ public class XMLLoader
 					layers = new List<Layer>();
 					foreach (XmlNode layerXml in sceneNodeXml.ChildNodes)
 					{
-						layers.Add(LoadLayer(layerXml));
+						layers.Add(LoadLayer(layerXml, pathPrefix));
 					}
-					
 					break;
 				case "enemies":
 					foreach (XmlNode partyXml in sceneNodeXml.ChildNodes)
@@ -50,10 +50,10 @@ public class XMLLoader
 						switch(partyXml.Name)
 						{
 							case "party1":
-								enemiesParty1 = LoadEnemies(partyXml.ChildNodes);
+								enemiesParty1 = LoadEnemies(partyXml.ChildNodes, pathPrefix);
 								break;
 							case "party2":
-								enemiesParty2 = LoadEnemies(partyXml.ChildNodes);
+								enemiesParty2 = LoadEnemies(partyXml.ChildNodes, pathPrefix);
 								break;
 							default:
 								throw new Exception("There should be parties only party1 and party2, but found: " + partyXml.Name);
@@ -79,21 +79,21 @@ public class XMLLoader
 		return new Word(wordXml.Attributes["text"].Value);
 	}
 
-	private List<Enemy> LoadEnemies(XmlNodeList enemiesXml)
+	private List<Enemy> LoadEnemies(XmlNodeList enemiesXml, string pathPrefix)
 	{
 		List<Enemy> enemies = new List<Enemy>();
 		foreach (XmlNode enemyXml in enemiesXml)
 		{
-			enemies.Add(LoadEnemy(enemyXml));
+			enemies.Add(LoadEnemy(enemyXml, pathPrefix));
 		}
 		return enemies;
 	}
 
-	private Enemy LoadEnemy(XmlNode enemyXml)
+	private Enemy LoadEnemy(XmlNode enemyXml, string pathPrefix)
 	{
-		Sprite[] anim = Resources.LoadAll<Sprite>(enemyXml.Attributes["anim"].Value);
-		Sprite[] reconciliationAnim = Resources.LoadAll<Sprite>(enemyXml.Attributes["reconciliationAnim"].Value);
-		Sprite[] deathAnim = Resources.LoadAll<Sprite>(enemyXml.Attributes["deathAnim"].Value);
+		Sprite[] anim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["anim"].Value);
+		Sprite[] reconciliationAnim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["reconciliationAnim"].Value);
+		Sprite[] deathAnim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["deathAnim"].Value);
 		return new Enemy(anim, reconciliationAnim, deathAnim);
 	}
 
@@ -106,9 +106,9 @@ public class XMLLoader
 		return new Player(playerAnimation, playerSuccessAnimation, playerSuccessSound);
 	}
 
-	private Layer LoadLayer(XmlNode layerXml)
+	private Layer LoadLayer(XmlNode layerXml, string pathPrefix)
 	{
-		Sprite[] elements = Resources.LoadAll<Sprite>(layerXml.Attributes["path"].Value);
+		Sprite[] elements = Resources.LoadAll<Sprite>(pathPrefix + layerXml.Attributes["path"].Value);
 		return new Layer(elements);
 	}
 	
