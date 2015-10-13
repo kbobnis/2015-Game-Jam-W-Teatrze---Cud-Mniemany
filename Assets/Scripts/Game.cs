@@ -9,7 +9,8 @@ public class Game : MonoBehaviour
 	{
 		XMLLoader xmlLoader = new XMLLoader();
 		
-		List<Scene> scenes = xmlLoader.LoadScenes(Resources.Load<TextAsset>("model").text);
+		GameModel gameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
+
 	}
 	
 }

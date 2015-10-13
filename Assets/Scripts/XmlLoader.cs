@@ -7,26 +7,28 @@ using System;
 public class XMLLoader
 {
 
-	public List<Scene> LoadScenes(string xml)
+	public GameModel LoadGame(string xml)
 	{
 		XmlDocument xmlDoc = new XmlDocument();
 		xmlDoc.LoadXml(xml);
 
-		List<Scene> scenes = new List<Scene>();
+		XmlNode scenesXml = xmlDoc.GetElementsByTagName("scenes").Item(0);
 
+		Player player = LoadPlayer(scenesXml);
+		
+		List<Scene> scenes = new List<Scene>();
 		foreach (XmlNode sceneXml in xmlDoc.GetElementsByTagName("scene"))
 		{
 			scenes.Add(LoadScene(sceneXml));
 		}
-		return scenes;
+		return new GameModel(player, scenes);
 	}
 
 	private Scene LoadScene(XmlNode sceneXml)
 	{
 		int time = int.Parse(sceneXml.Attributes["time"].Value);
 		int enemiesCount = int.Parse(sceneXml.Attributes["enemies"].Value);
-
-		Player player = null;
+		
 		List<Layer> layers = null;
 		List<Enemy> enemiesParty1 = null;
 		List<Enemy> enemiesParty2 = null;
@@ -34,9 +36,6 @@ public class XMLLoader
 		foreach (XmlNode sceneNodeXml in sceneXml.ChildNodes)
 		{
 			switch (sceneNodeXml.Name) {
-				case "player":
-					player = LoadPlayer(sceneNodeXml);
-					break;
 				case "layers":
 					layers = new List<Layer>();
 					foreach (XmlNode layerXml in sceneNodeXml.ChildNodes)
@@ -72,7 +71,7 @@ public class XMLLoader
 				throw new Exception("Scene node child not recognized: " + sceneNodeXml.Name);
 			}
 		}
-		return new Scene(time, enemiesCount, player, layers, enemiesParty1, enemiesParty2, words);
+		return new Scene(time, enemiesCount, layers, enemiesParty1, enemiesParty2, words);
 	}
 
 	private Word LoadWord(XmlNode wordXml)
@@ -100,8 +99,8 @@ public class XMLLoader
 
 	private Player LoadPlayer(XmlNode playerXml)
 	{
-		Sprite playerAnimation = Resources.Load<Sprite>(playerXml.Attributes["walkAnimation"].Value);
-		Sprite playerSuccessAnimation = Resources.Load<Sprite>(playerXml.Attributes["successAnimation"].Value);
+		Sprite playerAnimation = Resources.Load<Sprite>(playerXml.Attributes["walkAnim"].Value);
+		Sprite playerSuccessAnimation = Resources.Load<Sprite>(playerXml.Attributes["successAnim"].Value);
 		AudioClip playerSuccessSound = Resources.Load<AudioClip>(playerXml.Attributes["successSound"].Value);
 
 		return new Player(playerAnimation, playerSuccessAnimation, playerSuccessSound);
