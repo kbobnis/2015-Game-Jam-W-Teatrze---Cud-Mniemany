@@ -110,6 +110,10 @@ public class Game : MonoBehaviour
 	private void NewScene()
 	{
 		ActualScene++;
+		if (ActualScene >= GameModel.Scenes.Count)
+		{
+			ActualScene = 0;
+		}
 		PrepareNewScene();
 	}
 

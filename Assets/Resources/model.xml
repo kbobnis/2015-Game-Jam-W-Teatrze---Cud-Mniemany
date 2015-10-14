@@ -1,7 +1,7 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
-		<scene pathPrefix="scene1/" time="60" enemies="5" landscapePath="tlo">
+		<scene pathPrefix="scene1/" time="45" enemies="5" landscapePath="tlo">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
@@ -10,7 +10,7 @@
 					<image path="wspornik1" />
 				</layer>
 				<layer id="backLayer" >
-					<image path="auto" />
+					<image path="wozek" />
 				</layer>
 			</layers>
 			<enemies>
@@ -39,7 +39,7 @@
 				<word text="dobro" />
 			</words>
 		</scene>
-		<scene pathPrefix="scene1/" time="15" enemies="5" landscapePath="slask">
+		<scene pathPrefix="scene1/" time="30" enemies="5" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
 					<image path="koksownik" />
