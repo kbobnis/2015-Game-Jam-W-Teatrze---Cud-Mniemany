@@ -1,7 +1,7 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
-		<scene pathPrefix="scene1/" time="100" enemies="10" landscapePath="landscape">
+		<scene pathPrefix="scene1/" time="10" enemies="10" landscapePath="landscape">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornik" />

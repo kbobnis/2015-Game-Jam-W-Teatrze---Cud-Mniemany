@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
 	public ElementLayer[] ElementLayers;
 	public PairLayer PairLayer1, PairLayer2, PairLayer3;
 	public MeshRenderer LandscapeRenderer;
+	public PapaMover PapaMover;
 
 	void Start ()
 	{
@@ -26,6 +27,10 @@ public class Game : MonoBehaviour
 		enemiesCount -= PairLayer1.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
 		enemiesCount -= PairLayer2.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
 		enemiesCount -= PairLayer3.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
+
+		GetComponent<CameraController>().Restart(scene.Time);
+
+		PapaMover.Restart(scene.Time);
 	}
 
 	
