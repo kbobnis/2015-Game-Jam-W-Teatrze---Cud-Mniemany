@@ -6,7 +6,7 @@ public class Layer : MonoBehaviour
 {
 	public const string LayerWsporniki = "wsporniki";
 	public const string LayerBackLayer = "backLayer";
-
+	public const string LayerWspornikiPrzod = "wspornikiPrzod";
 	private string Name;
 	public List<Sprite> Sprites;
 

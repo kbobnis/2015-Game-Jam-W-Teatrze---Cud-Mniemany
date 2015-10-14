@@ -4,8 +4,10 @@
 		<scene pathPrefix="scene1/" time="60" enemies="10" landscapePath="landscape">
 			<layers>
 				<layer id="wsporniki">
-					<image path="wspornik" />
 					<image path="wspornik1" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornikPrzod" />
 				</layer>
 				<layer id="backLayer" >
 					<image path="layers/kamien" />
