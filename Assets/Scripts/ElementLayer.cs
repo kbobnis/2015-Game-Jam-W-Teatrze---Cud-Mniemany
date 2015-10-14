@@ -16,5 +16,5 @@ public class ElementLayer : MonoBehaviour
 
 public enum LayerType
 {
-	Wsporniki, BackElements
+	Wsporniki, BackElements, WspornikiPrzod
 }

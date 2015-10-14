@@ -4,8 +4,10 @@
 		<scene pathPrefix="scene1/" time="60" enemies="5" landscapePath="landscape">
 			<layers>
 				<layer id="wsporniki">
-					<image path="wspornik" />
 					<image path="wspornik1" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornikPrzod" />
 				</layer>
 				<layer id="backLayer" >
 					<image path="layers/kamien" />
@@ -23,7 +25,6 @@
 				</party2>
 			</enemies>
 			<words>
-				<word text="równość" />
 				<word text="braterstwo" />
 				<word text="bohaterstwo" />
 				<word text="wiara" />

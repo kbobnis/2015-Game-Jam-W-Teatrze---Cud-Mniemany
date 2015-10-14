@@ -51,6 +51,9 @@ public class XMLLoader
 							case "backLayer":
 								lt = LayerType.BackElements;
 								break;
+							case "wspornikiPrzod":
+								lt = LayerType.WspornikiPrzod;
+								break;
 							default:
 								throw new System.Exception("THere is no layer tape mapping for " + name);
 						}
@@ -127,6 +130,8 @@ public class XMLLoader
 		{
 			case Layer.LayerBackLayer:
 			case Layer.LayerWsporniki:
+				break;
+			case Layer.LayerWspornikiPrzod:
 				break;
 			default:
 				throw new System.Exception("There can be layers named wsporniki, frontLayers, backLayer. Found: " + name);
