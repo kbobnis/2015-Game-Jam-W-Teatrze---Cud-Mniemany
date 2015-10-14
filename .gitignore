@@ -6,6 +6,7 @@
 *.csproj
 *.unityproj
 *.sln
+Thumbs.db
 LICENSE.meta
 README.md.meta
 /*.apk
@@ -24,3 +25,4 @@ platforms
 /Assembly-UnityScript-Editor-firstpass-vs.unityproj
 /Assembly-UnityScript-Editor-firstpass.unityproj
 /obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Thumbs.db
