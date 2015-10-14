@@ -7,7 +7,7 @@ public class PairLayer : MonoBehaviour
 	/**
 	 * @returns how many enemies were prepared
 	 */
-	internal int Prepare(List<Enemy> lefts, List<Enemy> rights, int enemiesToPrepare)
+	internal int Prepare(List<Enemy> lefts, List<Enemy> rights, int enemiesToPrepare, List<Word> words)
 	{
 		int i = 0;
 		int created = 0;
@@ -22,12 +22,23 @@ public class PairLayer : MonoBehaviour
 
 				Enemy left = lefts[UnityEngine.Random.Range(0, lefts.Count-1)];
 				Enemy right = rights[UnityEngine.Random.Range(0, rights.Count-1)];
+				Word word = words[UnityEngine.Random.Range(0, words.Count - 1)];
 
-				pair.Prepare(left, right);
+				pair.Prepare(left, right, word);
 			}
-
 			i++;
 		}
 		return created;
+	}
+
+	internal void SendLetter(string p)
+	{
+		foreach (Pair pair in gameObject.GetComponentsInChildren<Pair>())
+		{
+			if (pair.gameObject.activeSelf)
+			{
+				pair.SendLetter(p);
+			}
+		}
 	}
 }

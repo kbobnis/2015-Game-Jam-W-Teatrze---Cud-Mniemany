@@ -1,7 +1,7 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
-		<scene pathPrefix="scene1/" time="10" enemies="10" landscapePath="landscape">
+		<scene pathPrefix="scene1/" time="60" enemies="10" landscapePath="landscape">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornik" />
@@ -23,17 +23,17 @@
 				</party2>
 			</enemies>
 			<words>
-				<word text="rownosc" />
+				<word text="równość" />
 				<word text="braterstwo" />
 				<word text="bohaterstwo" />
 				<word text="wiara" />
 				<word text="nadzieja" />
-				<word text="pokoj" />
-				<word text="milosc" />
-				<word text="szczescie" />
-				<word text="radosc" />
+				<word text="pokój" />
+				<word text="milość" />
+				<word text="szczęście" />
+				<word text="radość" />
 				<word text="pojednanie" />
-				<word text="lad" />
+				<word text="ład" />
 				<word text="zgoda" />
 				<word text="dobro" />
 			</words>

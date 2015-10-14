@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Word
 {
-
-	private string Text;
+	public string Text;
 
 	public Word(string text)
 	{

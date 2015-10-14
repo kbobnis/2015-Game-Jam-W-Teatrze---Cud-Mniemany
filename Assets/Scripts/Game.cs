@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,14 +25,23 @@ public class Game : MonoBehaviour
 
 		int enemiesCount = scene.EnemiesCount;
 
-		enemiesCount -= PairLayer1.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
-		enemiesCount -= PairLayer2.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
-		enemiesCount -= PairLayer3.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
+		enemiesCount -= PairLayer1.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount, scene.Words);
+		enemiesCount -= PairLayer2.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount, scene.Words);
+		enemiesCount -= PairLayer3.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount, scene.Words);
 
 		GetComponent<CameraController>().Restart(scene.Time);
-
 		PapaMover.Restart(scene.Time);
 	}
 
+	void Update()
+	{
+
+		if (Input.anyKeyDown && (string)Input.inputString != "")
+		{
+			PairLayer1.SendLetter((string)Input.inputString);
+			PairLayer2.SendLetter((string)Input.inputString);
+			PairLayer3.SendLetter((string)Input.inputString);
+		}
+	}
 	
 }
