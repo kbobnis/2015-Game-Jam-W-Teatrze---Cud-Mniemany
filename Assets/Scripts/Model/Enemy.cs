@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	private Sprite[] Anim;
-	private Sprite[] ReconciliationAnim;
-	private Sprite[] DeathAnim;
+	public Sprite Anim;
+	public Sprite ReconciliationAnim;
+	public Sprite[] DeathAnim;
 
-	public Enemy(Sprite[] anim, Sprite[] reconciliationAnim, Sprite[] deathAnim)
+	public Enemy(Sprite anim, Sprite reconciliationAnim, Sprite[] deathAnim)
 	{
 		Anim = anim;
 		ReconciliationAnim = reconciliationAnim;

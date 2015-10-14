@@ -4,22 +4,29 @@ using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
-	public GameObject SpectatorsRow1, SpectatorsRow2, SpectatorsRow3;
-	public GameObject FrontLayer1, FrontLayer2, FrontLayer3;
-	public GameObject WspornikiLayer, BackElementsLayer;
+	public ElementLayer[] ElementLayers;
+	public PairLayer PairLayer1, PairLayer2, PairLayer3;
 	public MeshRenderer LandscapeRenderer;
-	public GameObject PairPrefab;
 
 	void Start ()
 	{
 		XMLLoader xmlLoader = new XMLLoader();
 		
 		GameModel gameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
+
+		Scene scene = gameModel.Scenes[0];
+
+		foreach (ElementLayer el in ElementLayers)
+		{
+			el.Prepare(scene.Layers[el.LayerType]);
+		}
+
+		int enemiesCount = scene.EnemiesCount;
+
+		enemiesCount -= PairLayer1.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
+		enemiesCount -= PairLayer2.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
+		enemiesCount -= PairLayer3.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount);
 	}
 
-	void InsertPair(GameObject pair)
-	{
-		throw new System.Exception("Land this pair in one of the layers");
-	}
 	
 }

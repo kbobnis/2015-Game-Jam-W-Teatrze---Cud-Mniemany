@@ -29,8 +29,9 @@ public class XMLLoader
 		int time = int.Parse(sceneXml.Attributes["time"].Value);
 		int enemiesCount = int.Parse(sceneXml.Attributes["enemies"].Value);
 		string pathPrefix = sceneXml.Attributes["pathPrefix"].Value;
-		
-		List<Layer> layers = null;
+		Texture landscape = Resources.Load<Texture>(pathPrefix + sceneXml.Attributes["landscapePath"].Value);
+
+		Dictionary<LayerType, Layer> layers = new Dictionary<LayerType, Layer>();
 		List<Enemy> enemiesParty1 = null;
 		List<Enemy> enemiesParty2 = null;
 		List<Word> words = null;
@@ -38,10 +39,23 @@ public class XMLLoader
 		{
 			switch (sceneNodeXml.Name) {
 				case "layers":
-					layers = new List<Layer>();
 					foreach (XmlNode layerXml in sceneNodeXml.ChildNodes)
 					{
-						layers.Add(LoadLayer(layerXml, pathPrefix));
+						string name = layerXml.Attributes["id"].Value;
+						LayerType lt = LayerType.BackElements;
+						switch (name)
+						{
+							case "wsporniki":
+								lt = LayerType.Wsporniki;
+								break;
+							case "backLayer":
+								lt = LayerType.BackElements;
+								break;
+							default:
+								throw new System.Exception("THere is no layer tape mapping for " + name);
+						}
+
+						layers.Add(lt, LoadLayer(layerXml, pathPrefix));
 					}
 					break;
 				case "enemies":
@@ -71,7 +85,7 @@ public class XMLLoader
 				throw new Exception("Scene node child not recognized: " + sceneNodeXml.Name);
 			}
 		}
-		return new Scene(time, enemiesCount, layers, enemiesParty1, enemiesParty2, words);
+		return new Scene(time, enemiesCount, landscape, layers, enemiesParty1, enemiesParty2, words);
 	}
 
 	private Word LoadWord(XmlNode wordXml)
@@ -91,8 +105,8 @@ public class XMLLoader
 
 	private Enemy LoadEnemy(XmlNode enemyXml, string pathPrefix)
 	{
-		Sprite[] anim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["anim"].Value);
-		Sprite[] reconciliationAnim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["reconciliationAnim"].Value);
+		Sprite anim = Resources.Load<Sprite>(pathPrefix + enemyXml.Attributes["anim"].Value);
+		Sprite reconciliationAnim = Resources.Load<Sprite>(pathPrefix + enemyXml.Attributes["reconciliationAnim"].Value);
 		Sprite[] deathAnim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["deathAnim"].Value);
 		return new Enemy(anim, reconciliationAnim, deathAnim);
 	}
@@ -108,8 +122,22 @@ public class XMLLoader
 
 	private Layer LoadLayer(XmlNode layerXml, string pathPrefix)
 	{
-		Sprite[] elements = Resources.LoadAll<Sprite>(pathPrefix + layerXml.Attributes["path"].Value);
-		return new Layer(elements);
+		string name = layerXml.Attributes["id"].Value;
+		switch (name)
+		{
+			case Layer.LayerBackLayer:
+			case Layer.LayerWsporniki:
+				break;
+			default:
+				throw new System.Exception("There can be layers named wsporniki, frontLayers, backLayer. Found: " + name);
+		}
+		List<Sprite> images = new List<Sprite>();
+		foreach (XmlNode imageXml in layerXml.ChildNodes)
+		{
+			images.Add(Resources.Load<Sprite>(pathPrefix + imageXml.Attributes["path"].Value));
+		}
+
+		return new Layer(name, images);
 	}
 	
 

@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Layer : MonoBehaviour {
-	
-	private Sprite[] Elements;
+public class Layer : MonoBehaviour
+{
+	public const string LayerWsporniki = "wsporniki";
+	public const string LayerBackLayer = "backLayer";
 
-	public Layer(Sprite[] elements) {
-		Elements = elements;
+	private string Name;
+	public List<Sprite> Sprites;
+
+	public Layer(string name, List<Sprite> sprites)
+	{
+		Name = name;
+		Sprites = sprites;
 	}
 
+	public Sprite GetRandomSprite()
+	{
+		return Sprites[UnityEngine.Random.Range(0, Sprites.Count - 1)];
+	}
 }

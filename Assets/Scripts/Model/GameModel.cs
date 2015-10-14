@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameModel
 {
 	private Player Player;
-	private List<Scene> Scenes;
+	public List<Scene> Scenes;
 
 	public GameModel(Player player, List<Scene> scenes)
 	{

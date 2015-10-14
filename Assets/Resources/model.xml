@@ -1,66 +1,25 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
-		<scene pathPrefix="scene1/" time="100" enemies="10" >
+		<scene pathPrefix="scene1/" time="100" enemies="10" landscapePath="landscape">
 			<layers>
-				<layer path="layers/widownia" />
-				<layer path="layers/widownia" />
-				<layer path="layers/widownia" />
-				<layer path="layers/scena" />
-				<layer path="layers/wsporniki" />
-				<layer path="layers/podloga" />
-				<layer path="layers/podloga" />
-				<layer path="layers/podloga" />
-				<layer path="layers/kamienie_w_tle" />
-				<layer path="layers/tlo" />
+				<layer id="wsporniki">
+					<image path="wspornik" />
+					<image path="wspornik1" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="layers/kamien" />
+					<image path="layers/wozek" />
+				</layer>
 			</layers>
 			<enemies>
 				<party1>
-					<enemy anim="enemies/miners/1_fight" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="enemies/miners/2_fight" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
+					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
+					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
 				</party1>
 				<party2>
-					<enemy anim="enemies/government/1_fight" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="enemies/government/2_fight" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
-			<words>
-				<word text="rownosc" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
-				<word text="nadzieja" />
-				<word text="pokoj" />
-				<word text="milosc" />
-				<word text="szczescie" />
-				<word text="radosc" />
-				<word text="pojednanie" />
-				<word text="lad" />
-				<word text="zgoda" />
-				<word text="dobro" />
-			</words>
-		</scene>
-		<scene pathPrefix="scene2/" time="90" enemies="10" >
-			<layers>
-				<layer path="layers/widownia" />
-				<layer path="layers/widownia" />
-				<layer path="layers/widownia" />
-				<layer path="layers/scena" />
-				<layer path="layers/wsporniki" />
-				<layer path="layers/podloga" />
-				<layer path="layers/podloga" />
-				<layer path="layers/podloga" />
-				<layer path="layers/kamienie_w_tle" />
-				<layer path="layers/tlo" />
-			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="enemies/miners/1_fight" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="enemies/miners/2_fight" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="enemies/government/1_fight" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="enemies/government/2_fight" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
+					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
+					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
 				</party2>
 			</enemies>
 			<words>

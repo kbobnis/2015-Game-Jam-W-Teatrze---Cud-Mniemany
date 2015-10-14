@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
 		if (Time > 0)
 		{
 			transform.LookAt (LookAtObject.transform);
-			transform.RotateAround (LookAtObject.transform.position, Vector3.up, -20 * UnityEngine.Time.deltaTime);
+			transform.RotateAround (LookAtObject.transform.position, Vector3.up, -10 * UnityEngine.Time.deltaTime);
 			Time-=UnityEngine.Time.fixedDeltaTime;
 		}
 	}
