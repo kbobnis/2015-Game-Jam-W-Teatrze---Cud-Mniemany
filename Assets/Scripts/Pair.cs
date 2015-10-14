@@ -5,18 +5,22 @@ public class Pair : MonoBehaviour
 {
 	private int ActualIndex = 0;
 	private string Text;
-	private bool GoDown = false;
+	public bool GoDown = false;
 
 	internal void Prepare(Enemy left, Enemy right, Word word)
 	{
+		Vector3 v = gameObject.transform.localPosition;
+		gameObject.transform.localPosition = new Vector3(v.x, 0, v.z);
+
+		GoDown = false;
+		ActualIndex = 0;
+
 		gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = right.Anim;
 		gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = left.Anim;
 
-		Vector3 pos = transform.TransformPoint(new Vector3(-4.5f, 0.5f));
-
 		GameObject go = gameObject.transform.GetChild(2).gameObject;
-		go.transform.position = pos;
-		go.GetComponent<TextMesh>().richText = true;
+		go.transform.position = transform.TransformPoint(new Vector3(-4.5f, 0.5f));;
+		gameObject.transform.GetChild(2).gameObject.SetActive(true);
 		Text = word.Text;
 		UpdateText();
 	}
@@ -42,8 +46,11 @@ public class Pair : MonoBehaviour
 
 	private void UpdateText()
 	{
-		GameObject go = gameObject.transform.GetChild(2).gameObject;
-		go.GetComponent<TextMesh>().text = "<color=\"red\">"+Text.Substring(0, ActualIndex)+"</color>" + Text.Substring(ActualIndex);
+		if (GoDown == false)
+		{
+			GameObject go = gameObject.transform.GetChild(2).gameObject;
+			go.GetComponent<TextMesh>().text = "<color=\"red\">" + Text.Substring(0, ActualIndex) + "</color>" + Text.Substring(ActualIndex);
+		}
 	}
 
 	void Update()
