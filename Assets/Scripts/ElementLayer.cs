@@ -7,9 +7,13 @@ public class ElementLayer : MonoBehaviour
 
 	internal void Prepare(Layer layer)
 	{
-		foreach (SpriteRenderer element in gameObject.GetComponentsInChildren<SpriteRenderer>())
+		foreach (SpriteRenderer element in gameObject.GetComponentsInChildren<SpriteRenderer>(true))
 		{
+			Vector3 pos = element.gameObject.transform.position;
+			Destroy(element.GetComponent<BoxCollider>());
+			element.gameObject.transform.position = new Vector3(pos.x, 1.5f, pos.z);
 			element.sprite = layer.GetRandomSprite();
+			element.gameObject.AddComponent<BoxCollider>();
 		}
 	}
 }

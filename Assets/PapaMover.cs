@@ -5,7 +5,7 @@ public class PapaMover : MonoBehaviour
 {
 
 	private float MinX ;
-	private float MaxX = 4;
+	private float MaxX = 3.5f;
 	private float Speed;
 
 	void OnEnable()
@@ -19,7 +19,10 @@ public class PapaMover : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		gameObject.transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
+		if (transform.position.x < MaxX)
+		{
+			transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
+		}
 	}
 
 	internal void Restart(int p)

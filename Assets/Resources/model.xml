@@ -1,17 +1,16 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
-		<scene pathPrefix="scene1/" time="60" enemies="5" landscapePath="landscape">
+		<scene pathPrefix="scene1/" time="60" enemies="5" landscapePath="tlo">
 			<layers>
 				<layer id="wsporniki">
-					<image path="wspornik1" />
-				</layer>
-				<layer id="wspornikiPrzod">
 					<image path="wspornikPrzod" />
 				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornik1" />
+				</layer>
 				<layer id="backLayer" >
-					<image path="layers/kamien" />
-					<image path="layers/wozek" />
+					<image path="auto" />
 				</layer>
 			</layers>
 			<enemies>
@@ -40,15 +39,15 @@
 				<word text="dobro" />
 			</words>
 		</scene>
-		<scene pathPrefix="scene1/" time="15" enemies="5" landscapePath="landscape">
+		<scene pathPrefix="scene1/" time="15" enemies="5" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
-					<image path="wspornik" />
-					<image path="wspornik1" />
+					<image path="koksownik" />
 				</layer>
 				<layer id="backLayer" >
-					<image path="layers/kamien" />
-					<image path="layers/wozek" />
+					<image path="opony" />
+					<image path="koksownik" />
+					<image path="auto" />
 				</layer>
 			</layers>
 			<enemies>
@@ -77,15 +76,16 @@
 				<word text="dobro" />
 			</words>
 		</scene>		
-				<scene pathPrefix="scene1/" time="15" enemies="5" landscapePath="landscape">
+		<scene pathPrefix="scene1/" time="15" enemies="5" landscapePath="tlo">
 			<layers>
 				<layer id="wsporniki">
-					<image path="wspornik" />
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
 					<image path="wspornik1" />
 				</layer>
 				<layer id="backLayer" >
-					<image path="layers/kamien" />
-					<image path="layers/wozek" />
+					<image path="wozek" />
 				</layer>
 			</layers>
 			<enemies>

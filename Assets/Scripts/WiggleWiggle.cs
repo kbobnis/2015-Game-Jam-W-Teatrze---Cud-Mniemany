@@ -22,7 +22,6 @@ public class WiggleWiggle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
 		ChildLeft.transform.RotateAround (ChildLeft.transform.position-ChildLeft.transform.up, transform.forward, ChildLeftDirection * Speed * UnityEngine.Time.deltaTime);
 		ChildRight.transform.RotateAround (ChildRight.transform.position-ChildRight.transform.up, transform.forward, ChildRightDirection * Speed * UnityEngine.Time.deltaTime);
 
@@ -37,9 +36,7 @@ public class WiggleWiggle : MonoBehaviour {
 		} else if (ChildRight.transform.localEulerAngles.z < 360-Angle && ChildRight.transform.localEulerAngles.z > 360-Angle*3) {
 			ChildRightDirection = 1;
 		}
-
 	}
-
 
 
 }

@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
 
 	public ElementLayer[] ElementLayers;
 	public PairLayer[] PairLayers;
-	public MeshRenderer LandscapeRenderer;
+	public SpriteRenderer LandscapeRenderer;
 	public PapaMover PapaMover;
 	public GameObject Curtain;
 	private bool GameStarted;
@@ -32,14 +32,12 @@ public class Game : MonoBehaviour
 	{
 		Preparing = true;
 
-		
 		PapaMover.Restart(GameModel.Scenes[ActualScene].Time);
 		PapaMover.gameObject.transform.GetChild(0).gameObject.SetActive(false);
 		PapaMover.enabled = false;
 
 		GetComponent<CameraController>().Restart(GameModel.Scenes[ActualScene].Time);
 		GetComponent<CameraController>().Started = false;
-
 		
 		Canvas.gameObject.SetActive(true);
 		
@@ -53,7 +51,12 @@ public class Game : MonoBehaviour
 		Curtain.transform.GetChild(1).localPosition = new Vector3(0, 0, pos.z);
 		foreach (ElementLayer el in ElementLayers)
 		{
-			el.Prepare(scene.Layers[el.LayerType]);
+			el.gameObject.SetActive(false);
+			if (scene.Layers.ContainsKey(el.LayerType))
+			{
+				el.gameObject.SetActive(true);
+				el.Prepare(scene.Layers[el.LayerType]);
+			} 
 		}
 
 		int enemiesCount = scene.EnemiesCount;
@@ -61,6 +64,7 @@ public class Game : MonoBehaviour
 		{
 			enemiesCount -= pr.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount, scene.Words);
 		}
+		LandscapeRenderer.sprite = scene.Landscape;
 		Debug.Log("new scene prepared");
 		Preparing = false;
 	}

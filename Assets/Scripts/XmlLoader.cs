@@ -29,7 +29,7 @@ public class XMLLoader
 		int time = int.Parse(sceneXml.Attributes["time"].Value);
 		int enemiesCount = int.Parse(sceneXml.Attributes["enemies"].Value);
 		string pathPrefix = sceneXml.Attributes["pathPrefix"].Value;
-		Texture landscape = Resources.Load<Texture>(pathPrefix + sceneXml.Attributes["landscapePath"].Value);
+		Sprite landscape = Resources.Load<Sprite>(pathPrefix + sceneXml.Attributes["landscapePath"].Value);
 
 		Dictionary<LayerType, Layer> layers = new Dictionary<LayerType, Layer>();
 		List<Enemy> enemiesParty1 = null;
