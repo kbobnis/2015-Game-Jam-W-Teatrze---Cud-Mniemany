@@ -11,12 +11,13 @@ public class PairLayer : MonoBehaviour
 	{
 		int i = 0;
 		int created = 0;
-		foreach (Pair pair in gameObject.GetComponentsInChildren<Pair>())
+		foreach (Pair pair in gameObject.GetComponentsInChildren<Pair>(true))
 		{
 			pair.gameObject.SetActive(false);
 
 			if (enemiesToPrepare > i)
 			{
+				Debug.Log("Preparing enemy ");
 				created++;
 				pair.gameObject.SetActive(true);
 
@@ -40,5 +41,17 @@ public class PairLayer : MonoBehaviour
 				pair.SendLetter(p);
 			}
 		}
+	}
+
+	internal bool AnyPairsLeft()
+	{
+		foreach (Pair pair in gameObject.GetComponentsInChildren<Pair>())
+		{
+			if (!pair.GoDown)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
