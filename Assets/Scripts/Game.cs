@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
 	private bool GameStarted;
 	private bool CanAnimCurtains;
 	private GameModel GameModel;
-	private int ActualScene;
+	public int ActualScene;
 	public Canvas Canvas;
 	private bool Preparing = false;
 
@@ -25,10 +25,10 @@ public class Game : MonoBehaviour
 		XMLLoader xmlLoader = new XMLLoader();
 		GameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
 		Debug.Log("loaded " + GameModel.Scenes.Count + " scenes");
-		PrepareNewScene();
+		PrepareNewScene("Cud mniemany");
 	}
 
-	private void PrepareNewScene()
+	public void PrepareNewScene(string text="")
 	{
 		Preparing = true;
 
@@ -40,9 +40,9 @@ public class Game : MonoBehaviour
 		GetComponent<CameraController>().Started = false;
 		
 		Canvas.gameObject.SetActive(true);
+		Canvas.gameObject.transform.GetChild(1).GetComponent<Text>().text = text;
 		
 		Scene scene = GameModel.Scenes[ActualScene];
-		Debug.Log("Preparing new scene: " + ActualScene + ", enemies count: " + scene.EnemiesCount);
 		CanAnimCurtains = false;
 		GameStarted = false;
 
@@ -114,7 +114,7 @@ public class Game : MonoBehaviour
 		{
 			ActualScene = 0;
 		}
-		PrepareNewScene();
+		PrepareNewScene("Kolejny akt");
 	}
 
 	private void AnimCurtains(){

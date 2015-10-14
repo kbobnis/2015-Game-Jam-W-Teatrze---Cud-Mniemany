@@ -114,6 +114,44 @@
 				<word text="dobro" />
 			</words>
 		</scene>		
+		<scene pathPrefix="scene1/" time="11" enemies="6" landscapePath="sejm2">
+			<layers>
+				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="doniczka" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="doniczka" />
+				</layer>
+			</layers>
+			<enemies>
+				<party1>
+					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
+					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
+				</party1>
+				<party2>
+					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
+					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
+				</party2>
+			</enemies>
+			<words>
+				<word text="równość" />
+				<word text="braterstwo" />
+				<word text="bohaterstwo" />
+				<word text="wiara" />
+				<word text="nadzieja" />
+				<word text="pokój" />
+				<word text="miłość" />
+				<word text="szczęście" />
+				<word text="radość" />
+				<word text="pojednanie" />
+				<word text="ład" />
+				<word text="zgoda" />
+				<word text="dobro" />
+			</words>
+		</scene>		
 
 	</scenes>
 

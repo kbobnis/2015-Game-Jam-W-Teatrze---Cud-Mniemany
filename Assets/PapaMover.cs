@@ -22,6 +22,10 @@ public class PapaMover : MonoBehaviour
 		if (transform.position.x < MaxX)
 		{
 			transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
+		} else
+		{
+			Game.Me.ActualScene = 0;
+			Game.Me.PrepareNewScene("Dla Ciebie sztuki nie puszczamy.");
 		}
 	}
 
