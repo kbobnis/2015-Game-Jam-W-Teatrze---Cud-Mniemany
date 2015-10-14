@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
+	public static Game Me;
+
 	public ElementLayer[] ElementLayers;
 	public PairLayer PairLayer1, PairLayer2, PairLayer3;
 	public MeshRenderer LandscapeRenderer;
@@ -17,23 +19,19 @@ public class Game : MonoBehaviour
 
 	void Start ()
 	{
+		Me = this;
 		XMLLoader xmlLoader = new XMLLoader();
-		
 		GameModel gameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
-
 		Scene = gameModel.Scenes[0];
-
 		foreach (ElementLayer el in ElementLayers)
 		{
 			el.Prepare(Scene.Layers[el.LayerType]);
 		}
 
 		int enemiesCount = Scene.EnemiesCount;
-
 		enemiesCount -= PairLayer1.Prepare(Scene.EnemiesParty1, Scene.EnemiesParty2, enemiesCount, Scene.Words);
 		enemiesCount -= PairLayer2.Prepare(Scene.EnemiesParty1, Scene.EnemiesParty2, enemiesCount, Scene.Words);
 		enemiesCount -= PairLayer3.Prepare(Scene.EnemiesParty1, Scene.EnemiesParty2, enemiesCount, Scene.Words);
-
 
 	}
 

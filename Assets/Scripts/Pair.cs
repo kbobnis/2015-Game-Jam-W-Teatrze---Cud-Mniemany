@@ -5,6 +5,7 @@ public class Pair : MonoBehaviour
 {
 	private int ActualIndex = 0;
 	private string Text;
+	private bool GoDown = false;
 
 	internal void Prepare(Enemy left, Enemy right, Word word)
 	{
@@ -22,12 +23,14 @@ public class Pair : MonoBehaviour
 
 	internal void SendLetter(string p)
 	{
-		if (Text.Substring(ActualIndex, 1) == p)
-		{
+		if (GoDown == false && Text.Substring(ActualIndex, 1) == p)
+		{ 
 			ActualIndex++;
 			if (ActualIndex >= Text.Length)
 			{
-				gameObject.SetActive(false);
+				Game.Me.PapaMover.GetComponent<Animator>().SetTrigger("Success");
+				gameObject.transform.GetChild(2).gameObject.SetActive(false);
+				GoDown = true;
 			}
 		} else
 		{
@@ -41,5 +44,17 @@ public class Pair : MonoBehaviour
 	{
 		GameObject go = gameObject.transform.GetChild(2).gameObject;
 		go.GetComponent<TextMesh>().text = "<color=\"red\">"+Text.Substring(0, ActualIndex)+"</color>" + Text.Substring(ActualIndex);
+	}
+
+	void Update()
+	{
+		if (GoDown)
+		{
+			gameObject.transform.position -= new Vector3(0, 0.5f * Time.deltaTime, 0);
+			if (gameObject.transform.position.y < -3)
+			{
+				gameObject.SetActive(false);
+			}
+		}
 	}
 }
