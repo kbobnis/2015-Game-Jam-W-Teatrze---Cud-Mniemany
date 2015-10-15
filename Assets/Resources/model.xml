@@ -8,23 +8,51 @@
 				</layer>
 				<layer id="wspornikiPrzod">
 					<image path="wspornik1" />
+					<image path="sterta" />
 				</layer>
 				<layer id="backLayer" >
+					<image path="wiertlo" />
+					<image path="sterta" />
 					<image path="wozek" />
+					<image path="sterta" />
+					<image path="wozek" />					
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
-			
+				<word text="równość" />
+				<word text="braterstwo" />
+				<word text="bohaterstwo" />
+				<word text="wiara" />
+				<word text="nadzieja" />
+				<word text="pokój" />
+				<word text="miłość" />
+				<word text="szczęście" />
+				<word text="radość" />
+				<word text="pojednanie" />
+				<word text="ład" />
+				<word text="zgoda" />
+				<word text="dobro" />
+			</words>
+		</scene>
+		<scene pathPrefix="scene1/" time="40" enemies="9" landscapePath="tlo">
+			<layers>
+				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornik1" />
+					<image path="sterta" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="wiertlo" />
+					<image path="sterta" />
+					<image path="wozek" />
+					<image path="sterta" />
+					<image path="wozek" />					
+				</layer>
+			</layers>
+			<words>
+				<word text="równość" />
 				<word text="braterstwo" />
 				<word text="bohaterstwo" />
 				<word text="wiara" />
@@ -42,24 +70,20 @@
 		<scene pathPrefix="scene1/" time="35" enemies="9" landscapePath="tlo">
 			<layers>
 				<layer id="wsporniki">
-					<image path="koksownik" />
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornik1" />
+					<image path="sterta" />
 				</layer>
 				<layer id="backLayer" >
-					<image path="opony" />
-					<image path="koksownik" />
-					<image path="auto" />
+					<image path="wiertlo" />
+					<image path="sterta" />
+					<image path="wozek" />
+					<image path="sterta" />
+					<image path="wozek" />					
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
 				<word text="równość" />
 				<word text="braterstwo" />
@@ -75,33 +99,22 @@
 				<word text="zgoda" />
 				<word text="dobro" />
 			</words>
-		</scene>		
-		<scene pathPrefix="scene1/" time="32" enemies="9" landscapePath="tlo">
+		</scene>
+		<scene pathPrefix="scene1/" time="33" enemies="9" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="opony" />
 					<image path="koksownik" />
 				</layer>
 				<layer id="backLayer" >
-					<image path="opony" />
 					<image path="koksownik" />
-					<image path="auto" />
+					<image path="opony" />
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
 				<word text="nadzieja" />
 				<word text="pokój" />
 				<word text="miłość" />
@@ -111,35 +124,28 @@
 				<word text="ład" />
 				<word text="zgoda" />
 				<word text="dobro" />
+				<word text="jedność" />
+				<word text="solidarność" />
+				<word text="siła" />
+				<word text="walka" />
+				<word text="męstwo" />
 			</words>
-		</scene>		
+		</scene>
 		<scene pathPrefix="scene1/" time="30" enemies="9" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
 				</layer>
 				<layer id="wspornikiPrzod">
-					<image path="wspornik1" />
+					<image path="opony" />
+					<image path="koksownik" />
 				</layer>
 				<layer id="backLayer" >
-					<image path="wozek" />
+					<image path="koksownik" />
+					<image path="opony" />
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
 				<word text="nadzieja" />
 				<word text="pokój" />
 				<word text="miłość" />
@@ -149,30 +155,57 @@
 				<word text="ład" />
 				<word text="zgoda" />
 				<word text="dobro" />
+				<word text="jedność" />
+				<word text="solidarność" />
+				<word text="siła" />
+				<word text="walka" />
+				<word text="męstwo" />
+			</words>
+		</scene>
+		<scene pathPrefix="scene1/" time="27" enemies="9" landscapePath="slask">
+			<layers>
+				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="opony" />
+					<image path="koksownik" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="koksownik" />
+					<image path="opony" />
+				</layer>
+			</layers>
+			<words>
+				<word text="nadzieja" />
+				<word text="pokój" />
+				<word text="miłość" />
+				<word text="szczęście" />
+				<word text="radość" />
+				<word text="pojednanie" />
+				<word text="ład" />
+				<word text="zgoda" />
+				<word text="dobro" />
+				<word text="jedność" />
+				<word text="solidarność" />
+				<word text="siła" />
+				<word text="walka" />
+				<word text="męstwo" />
 			</words>
 		</scene>		
-		<scene pathPrefix="scene1/" time="25" enemies="9" landscapePath="slask">
+		<scene pathPrefix="scene1/" time="22" enemies="9" landscapePath="sejm2">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
 				</layer>
 				<layer id="wspornikiPrzod">
 					<image path="doniczka" />
+					<image path="kwiatwolnostojacy" />
 				</layer>
 				<layer id="backLayer" >
 					<image path="doniczka" />
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
 				<word text="równość" />
 				<word text="braterstwo" />
@@ -182,49 +215,11 @@
 				<word text="pokój" />
 				<word text="miłość" />
 				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
-			</words>
-		</scene>		
-		<scene pathPrefix="scene1/" time="22" enemies="9" landscapePath="slask">
-			<layers>
-				<layer id="wsporniki">
-					<image path="wspornikPrzod" />
-				</layer>
-				<layer id="wspornikiPrzod">
-					<image path="doniczka" />
-				</layer>
-				<layer id="backLayer" >
-					<image path="doniczka" />
-				</layer>
-			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
-			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
-				<word text="nadzieja" />
-				<word text="pokój" />
-				<word text="miłość" />
-				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
+				<word text="skromność" />
+				<word text="umiarkowanie" />
+				<word text="wybaczenie" />
+				<word text="przebaczenie" />
+				<word text="przebaczenie" />
 			</words>
 		</scene>		
 		<scene pathPrefix="scene1/" time="20" enemies="9" landscapePath="sejm2">
@@ -234,21 +229,12 @@
 				</layer>
 				<layer id="wspornikiPrzod">
 					<image path="doniczka" />
+					<image path="kwiatwolnostojacy" />
 				</layer>
 				<layer id="backLayer" >
 					<image path="doniczka" />
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
 				<word text="równość" />
 				<word text="braterstwo" />
@@ -258,35 +244,26 @@
 				<word text="pokój" />
 				<word text="miłość" />
 				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
+				<word text="skromność" />
+				<word text="umiarkowanie" />
+				<word text="wybaczenie" />
+				<word text="przebaczenie" />
+				<word text="przebaczenie" />
 			</words>
-		</scene>		
-		<scene pathPrefix="scene1/" time="18" enemies="9" landscapePath="sejm2">
+		</scene>
+		<scene pathPrefix="scene1/" time="17" enemies="9" landscapePath="sejm2">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
 				</layer>
 				<layer id="wspornikiPrzod">
 					<image path="doniczka" />
+					<image path="kwiatwolnostojacy" />
 				</layer>
 				<layer id="backLayer" >
 					<image path="doniczka" />
 				</layer>
 			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
 			<words>
 				<word text="równość" />
 				<word text="braterstwo" />
@@ -296,51 +273,14 @@
 				<word text="pokój" />
 				<word text="miłość" />
 				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
+				<word text="skromność" />
+				<word text="umiarkowanie" />
+				<word text="wybaczenie" />
+				<word text="przebaczenie" />
+				<word text="teatr polski" />
+				<word text="sztuka" />
 			</words>
 		</scene>		
-		<scene pathPrefix="scene1/" time="16" enemies="9" landscapePath="sejm2">
-			<layers>
-				<layer id="wsporniki">
-					<image path="wspornikPrzod" />
-				</layer>
-				<layer id="wspornikiPrzod">
-					<image path="doniczka" />
-				</layer>
-				<layer id="backLayer" >
-					<image path="doniczka" />
-				</layer>
-			</layers>
-			<enemies>
-				<party1>
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/1_recon" deathAnim="enemeies/miners/1_death" />
-					<enemy anim="gornik" reconciliationAnim="enemies/miners/2_recon" deathAnim="enemeies/miners/2_death" />
-				</party1>
-				<party2>
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/1_recon" deathAnim="enemeies/government/1_death" />
-					<enemy anim="rzadowy" reconciliationAnim="enemies/government/2_recon" deathAnim="enemeies/government/2_death" />
-				</party2>
-			</enemies>
-			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
-				<word text="nadzieja" />
-				<word text="pokój" />
-				<word text="miłość" />
-				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
-			</words>
-		</scene>		
-	</scenes>
+		</scenes>
 
 </root>

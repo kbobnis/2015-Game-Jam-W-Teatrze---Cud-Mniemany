@@ -32,8 +32,6 @@ public class XMLLoader
 		Sprite landscape = Resources.Load<Sprite>(pathPrefix + sceneXml.Attributes["landscapePath"].Value);
 
 		Dictionary<LayerType, Layer> layers = new Dictionary<LayerType, Layer>();
-		List<Enemy> enemiesParty1 = null;
-		List<Enemy> enemiesParty2 = null;
 		List<Word> words = null;
 		foreach (XmlNode sceneNodeXml in sceneXml.ChildNodes)
 		{
@@ -61,22 +59,6 @@ public class XMLLoader
 						layers.Add(lt, LoadLayer(layerXml, pathPrefix));
 					}
 					break;
-				case "enemies":
-					foreach (XmlNode partyXml in sceneNodeXml.ChildNodes)
-					{
-						switch(partyXml.Name)
-						{
-							case "party1":
-								enemiesParty1 = LoadEnemies(partyXml.ChildNodes, pathPrefix);
-								break;
-							case "party2":
-								enemiesParty2 = LoadEnemies(partyXml.ChildNodes, pathPrefix);
-								break;
-							default:
-								throw new Exception("There should be parties only party1 and party2, but found: " + partyXml.Name);
-						}
-					}
-					break;
 				case "words":
 					words = new List<Word>();
 					foreach (XmlNode wordXml in sceneNodeXml.ChildNodes)
@@ -88,30 +70,12 @@ public class XMLLoader
 				throw new Exception("Scene node child not recognized: " + sceneNodeXml.Name);
 			}
 		}
-		return new Scene(time, enemiesCount, landscape, layers, enemiesParty1, enemiesParty2, words);
+		return new Scene(time, enemiesCount, landscape, layers, words);
 	}
 
 	private Word LoadWord(XmlNode wordXml)
 	{
 		return new Word(wordXml.Attributes["text"].Value);
-	}
-
-	private List<Enemy> LoadEnemies(XmlNodeList enemiesXml, string pathPrefix)
-	{
-		List<Enemy> enemies = new List<Enemy>();
-		foreach (XmlNode enemyXml in enemiesXml)
-		{
-			enemies.Add(LoadEnemy(enemyXml, pathPrefix));
-		}
-		return enemies;
-	}
-
-	private Enemy LoadEnemy(XmlNode enemyXml, string pathPrefix)
-	{
-		Sprite anim = Resources.Load<Sprite>(pathPrefix + enemyXml.Attributes["anim"].Value);
-		Sprite reconciliationAnim = Resources.Load<Sprite>(pathPrefix + enemyXml.Attributes["reconciliationAnim"].Value);
-		Sprite[] deathAnim = Resources.LoadAll<Sprite>(pathPrefix + enemyXml.Attributes["deathAnim"].Value);
-		return new Enemy(anim, reconciliationAnim, deathAnim);
 	}
 
 	private Player LoadPlayer(XmlNode playerXml)

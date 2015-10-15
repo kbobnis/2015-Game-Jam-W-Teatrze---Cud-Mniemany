@@ -74,7 +74,7 @@ public class Game : MonoBehaviour
 		int enemiesCount = scene.EnemiesCount;
 		foreach (PairLayer pr in PairLayers)
 		{
-			enemiesCount -= pr.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount, scene.Words);
+			enemiesCount -= pr.Prepare(enemiesCount, scene.Words);
 		}
 		LandscapeRenderer.sprite = scene.Landscape;
 

@@ -7,16 +7,13 @@ public class Pair : MonoBehaviour
 	private string Text;
 	public bool GoDown = false;
 
-	internal void Prepare(Enemy left, Enemy right, Word word)
+	internal void Prepare(Word word)
 	{
 		Vector3 v = gameObject.transform.localPosition;
 		gameObject.transform.localPosition = new Vector3(v.x, 0, v.z);
 
 		GoDown = false;
 		ActualIndex = 0;
-
-		gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = right.Anim;
-		gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = left.Anim;
 
 		GameObject go = gameObject.transform.GetChild(2).gameObject;
 		go.transform.position = transform.TransformPoint(new Vector3(-4.5f, 0.5f));;

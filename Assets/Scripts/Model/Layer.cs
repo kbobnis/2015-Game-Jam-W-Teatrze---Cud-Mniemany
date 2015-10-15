@@ -18,6 +18,6 @@ public class Layer : MonoBehaviour
 
 	public Sprite GetRandomSprite()
 	{
-		return Sprites[UnityEngine.Random.Range(0, Sprites.Count - 1)];
+		return Sprites[UnityEngine.Random.Range(0, Sprites.Count)];
 	}
 }
