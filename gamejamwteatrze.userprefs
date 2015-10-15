@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\model.xml">
+    <Files>
+      <File FileName="Assets\Resources\model.xml" Line="34" Column="32" />
+      <File FileName="Assets\Scripts\Game.cs" Line="140" Column="1" />
+      <File FileName="Assets\Scripts\Pair.cs" Line="68" Column="1" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="38" Column="1" />
+      <File FileName="Assets\Scripts\WiggleWiggle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\XmlLoader.cs" Line="134" Column="29" />
+      <File FileName="Assets\Scripts\ElementLayer.cs" Line="21" Column="1" />
+      <File FileName="Assets\Scripts\Model\Layer.cs" Line="24" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
