@@ -18,18 +18,29 @@ public class Game : MonoBehaviour
 	public int ActualScene;
 	public Canvas Canvas;
 	private bool Preparing = false;
-
+	public int PairsOnScene=0;
+	public AudioClip PapaSound;
+	public AudioSource[] AudioSources;
+	private bool newSceneInvoked;
 	void Start ()
 	{
 		Me = this;
 		XMLLoader xmlLoader = new XMLLoader();
 		GameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
 		Debug.Log("loaded " + GameModel.Scenes.Count + " scenes");
+
+
+		AudioSources = Camera.main.GetComponents<AudioSource> ();
+		Debug.Log ("A" + AudioSources.Length);
 		PrepareNewScene("Cud mniemany");
 	}
 
 	public void PrepareNewScene(string text="")
 	{
+		AudioSources[0].volume = 1;
+		AudioSources [1].volume = 1;
+		AudioSources[0].Stop ();
+		AudioSources[1].Stop ();
 		Preparing = true;
 
 		PapaMover.Restart(GameModel.Scenes[ActualScene].Time);
@@ -43,6 +54,7 @@ public class Game : MonoBehaviour
 		Canvas.gameObject.transform.GetChild(1).GetComponent<Text>().text = text;
 		
 		Scene scene = GameModel.Scenes[ActualScene];
+		PairsOnScene = scene.EnemiesCount;
 		CanAnimCurtains = false;
 		GameStarted = false;
 
@@ -65,6 +77,8 @@ public class Game : MonoBehaviour
 			enemiesCount -= pr.Prepare(scene.EnemiesParty1, scene.EnemiesParty2, enemiesCount, scene.Words);
 		}
 		LandscapeRenderer.sprite = scene.Landscape;
+
+
 		Debug.Log("new scene prepared");
 		Preparing = false;
 	}
@@ -84,6 +98,8 @@ public class Game : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.Space) && !GameStarted)
 		{
+			AudioSources[0].Play ();
+			AudioSources[1].Play ();
 			CanAnimCurtains=true;
 		}
 
@@ -101,7 +117,11 @@ public class Game : MonoBehaviour
 			if (anyPairsLeft == false)
 			{
 				//end game
-				NewScene();
+				if(!newSceneInvoked)
+				{
+					Invoke("NewScene",1);
+					newSceneInvoked=true;
+				}
 			}
 		}
 
@@ -115,11 +135,13 @@ public class Game : MonoBehaviour
 			ActualScene = 0;
 		}
 		PrepareNewScene("Kolejny akt");
+		newSceneInvoked = false;
 	}
 
 	private void AnimCurtains(){
 		Canvas.gameObject.SetActive (false);
 
+	
 		if (Curtain.transform.GetChild(0).localPosition.x > -4.1f)
 		{
 			Curtain.transform.GetChild(0).transform.position -= new Vector3(0.1f, 0, 0);

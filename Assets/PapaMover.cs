@@ -25,7 +25,7 @@ public class PapaMover : MonoBehaviour
 		} else
 		{
 			Game.Me.ActualScene = 0;
-			Game.Me.PrepareNewScene("Dla Ciebie sztuki nie puszczamy.");
+			Game.Me.PrepareNewScene("Koniec i bomba, kto zagrał ten trąba");
 		}
 	}
 

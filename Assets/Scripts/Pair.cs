@@ -32,6 +32,10 @@ public class Pair : MonoBehaviour
 			ActualIndex++;
 			if (ActualIndex >= Text.Length)
 			{
+				Game.Me.GetComponent<Game>().PapaMover.gameObject.GetComponent<AudioSource>().PlayOneShot(Camera.main.GetComponent<Game>().PapaSound,1);
+				Game.Me.GetComponent<Game>().AudioSources[0].volume-=(1.0f/Camera.main.GetComponent<Game>().PairsOnScene);
+				Game.Me.GetComponent<Game>().AudioSources[1].volume-=(1.0f/Camera.main.GetComponent<Game>().PairsOnScene);
+
 				Game.Me.PapaMover.GetComponent<Animator>().SetTrigger("Success");
 				gameObject.transform.GetChild(2).gameObject.SetActive(false);
 				GoDown = true;
