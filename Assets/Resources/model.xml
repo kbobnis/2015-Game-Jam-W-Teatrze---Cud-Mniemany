@@ -1,6 +1,72 @@
 <root>
 
 	<scenes walkAnim="papa" successAnim="papaSuccess" successSound="success">
+		<scene pathPrefix="scene1/" time="60" enemies="9" landscapePath="tlo">
+			<layers>
+				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornik1" />
+					<image path="sterta" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="wiertlo" />
+					<image path="sterta" />
+					<image path="wozek" />
+					<image path="sterta" />
+					<image path="wozek" />					
+				</layer>
+			</layers>
+			<words>
+				<word text="równość" />
+				<word text="braterstwo" />
+				<word text="bohaterstwo" />
+				<word text="wiara" />
+				<word text="nadzieja" />
+				<word text="pokój" />
+				<word text="miłość" />
+				<word text="szczęście" />
+				<word text="radość" />
+				<word text="pojednanie" />
+				<word text="ład" />
+				<word text="zgoda" />
+				<word text="dobro" />
+			</words>
+		</scene>
+		<scene pathPrefix="scene1/" time="50" enemies="9" landscapePath="tlo">
+			<layers>
+				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="wspornik1" />
+					<image path="sterta" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="wiertlo" />
+					<image path="sterta" />
+					<image path="wozek" />
+					<image path="sterta" />
+					<image path="wozek" />					
+				</layer>
+			</layers>
+			<words>
+				<word text="równość" />
+				<word text="braterstwo" />
+				<word text="bohaterstwo" />
+				<word text="wiara" />
+				<word text="nadzieja" />
+				<word text="pokój" />
+				<word text="miłość" />
+				<word text="szczęście" />
+				<word text="radość" />
+				<word text="pojednanie" />
+				<word text="ład" />
+				<word text="zgoda" />
+				<word text="dobro" />
+			</words>
+		</scene>
 		<scene pathPrefix="scene1/" time="45" enemies="9" landscapePath="tlo">
 			<layers>
 				<layer id="wsporniki">
@@ -34,73 +100,7 @@
 				<word text="dobro" />
 			</words>
 		</scene>
-		<scene pathPrefix="scene1/" time="40" enemies="9" landscapePath="tlo">
-			<layers>
-				<layer id="wsporniki">
-					<image path="wspornikPrzod" />
-				</layer>
-				<layer id="wspornikiPrzod">
-					<image path="wspornik1" />
-					<image path="sterta" />
-				</layer>
-				<layer id="backLayer" >
-					<image path="wiertlo" />
-					<image path="sterta" />
-					<image path="wozek" />
-					<image path="sterta" />
-					<image path="wozek" />					
-				</layer>
-			</layers>
-			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
-				<word text="nadzieja" />
-				<word text="pokój" />
-				<word text="miłość" />
-				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
-			</words>
-		</scene>
-		<scene pathPrefix="scene1/" time="35" enemies="9" landscapePath="tlo">
-			<layers>
-				<layer id="wsporniki">
-					<image path="wspornikPrzod" />
-				</layer>
-				<layer id="wspornikiPrzod">
-					<image path="wspornik1" />
-					<image path="sterta" />
-				</layer>
-				<layer id="backLayer" >
-					<image path="wiertlo" />
-					<image path="sterta" />
-					<image path="wozek" />
-					<image path="sterta" />
-					<image path="wozek" />					
-				</layer>
-			</layers>
-			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
-				<word text="nadzieja" />
-				<word text="pokój" />
-				<word text="miłość" />
-				<word text="szczęście" />
-				<word text="radość" />
-				<word text="pojednanie" />
-				<word text="ład" />
-				<word text="zgoda" />
-				<word text="dobro" />
-			</words>
-		</scene>
-		<scene pathPrefix="scene1/" time="33" enemies="9" landscapePath="slask">
+		<scene pathPrefix="scene1/" time="28" enemies="9" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
@@ -131,7 +131,7 @@
 				<word text="męstwo" />
 			</words>
 		</scene>
-		<scene pathPrefix="scene1/" time="30" enemies="9" landscapePath="slask">
+		<scene pathPrefix="scene1/" time="25" enemies="9" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
@@ -162,7 +162,7 @@
 				<word text="męstwo" />
 			</words>
 		</scene>
-		<scene pathPrefix="scene1/" time="27" enemies="9" landscapePath="slask">
+		<scene pathPrefix="scene1/" time="22" enemies="9" landscapePath="slask">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />
@@ -191,35 +191,6 @@
 				<word text="siła" />
 				<word text="walka" />
 				<word text="męstwo" />
-			</words>
-		</scene>		
-		<scene pathPrefix="scene1/" time="22" enemies="9" landscapePath="sejm2">
-			<layers>
-				<layer id="wsporniki">
-					<image path="wspornikPrzod" />
-				</layer>
-				<layer id="wspornikiPrzod">
-					<image path="doniczka" />
-					<image path="kwiatwolnostojacy" />
-				</layer>
-				<layer id="backLayer" >
-					<image path="doniczka" />
-				</layer>
-			</layers>
-			<words>
-				<word text="równość" />
-				<word text="braterstwo" />
-				<word text="bohaterstwo" />
-				<word text="wiara" />
-				<word text="nadzieja" />
-				<word text="pokój" />
-				<word text="miłość" />
-				<word text="szczęście" />
-				<word text="skromność" />
-				<word text="umiarkowanie" />
-				<word text="wybaczenie" />
-				<word text="przebaczenie" />
-				<word text="przebaczenie" />
 			</words>
 		</scene>		
 		<scene pathPrefix="scene1/" time="20" enemies="9" landscapePath="sejm2">
@@ -250,8 +221,37 @@
 				<word text="przebaczenie" />
 				<word text="przebaczenie" />
 			</words>
-		</scene>
+		</scene>		
 		<scene pathPrefix="scene1/" time="17" enemies="9" landscapePath="sejm2">
+			<layers>
+				<layer id="wsporniki">
+					<image path="wspornikPrzod" />
+				</layer>
+				<layer id="wspornikiPrzod">
+					<image path="doniczka" />
+					<image path="kwiatwolnostojacy" />
+				</layer>
+				<layer id="backLayer" >
+					<image path="doniczka" />
+				</layer>
+			</layers>
+			<words>
+				<word text="równość" />
+				<word text="braterstwo" />
+				<word text="bohaterstwo" />
+				<word text="wiara" />
+				<word text="nadzieja" />
+				<word text="pokój" />
+				<word text="miłość" />
+				<word text="szczęście" />
+				<word text="skromność" />
+				<word text="umiarkowanie" />
+				<word text="wybaczenie" />
+				<word text="przebaczenie" />
+				<word text="przebaczenie" />
+			</words>
+		</scene>
+		<scene pathPrefix="scene1/" time="14" enemies="9" landscapePath="sejm2">
 			<layers>
 				<layer id="wsporniki">
 					<image path="wspornikPrzod" />

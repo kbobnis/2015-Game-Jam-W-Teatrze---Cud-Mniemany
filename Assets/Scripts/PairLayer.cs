@@ -17,7 +17,6 @@ public class PairLayer : MonoBehaviour
 
 			if (enemiesToPrepare > i)
 			{
-				Debug.Log("Preparing enemy ");
 				created++;
 				pair.gameObject.SetActive(true);
 

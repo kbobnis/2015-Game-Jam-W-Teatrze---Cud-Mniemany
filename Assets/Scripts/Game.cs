@@ -5,23 +5,23 @@ using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
-	public static Game Me;
+	private bool GameStarted;
+	private bool Preparing = false;
 
+	public static Game Me;
 	public ElementLayer[] ElementLayers;
 	public PairLayer[] PairLayers;
 	public SpriteRenderer LandscapeRenderer;
-	public PapaMover PapaMover;
 	public GameObject Curtain;
-	private bool GameStarted;
-	private bool CanAnimCurtains;
-	private GameModel GameModel;
+	public GameModel GameModel;
 	public int ActualScene;
 	public Canvas Canvas;
-	private bool Preparing = false;
 	public int PairsOnScene=0;
 	public AudioClip PapaSound;
 	public AudioSource[] AudioSources;
-	private bool newSceneInvoked;
+	public GameObject PapaGameObject;
+	public GameObject MiddleOfScreen;
+
 	void Start ()
 	{
 		Me = this;
@@ -29,38 +29,35 @@ public class Game : MonoBehaviour
 		GameModel = xmlLoader.LoadGame(Resources.Load<TextAsset>("model").text);
 		Debug.Log("loaded " + GameModel.Scenes.Count + " scenes");
 
-
 		AudioSources = Camera.main.GetComponents<AudioSource> ();
-		Debug.Log ("A" + AudioSources.Length);
 		PrepareNewScene("Cud mniemany");
 	}
 
 	public void PrepareNewScene(string text="")
 	{
+		Preparing = true;
 		AudioSources[0].volume = 1;
 		AudioSources [1].volume = 1;
 		AudioSources[0].Stop ();
 		AudioSources[1].Stop ();
-		Preparing = true;
 
-		PapaMover.Restart(GameModel.Scenes[ActualScene].Time);
-		PapaMover.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-		PapaMover.enabled = false;
+		Destroy(GetComponent<Mover>());
+		Destroy(PapaGameObject.GetComponent<Mover>());
 
-		GetComponent<CameraController>().Restart(GameModel.Scenes[ActualScene].Time);
-		GetComponent<CameraController>().Started = false;
+		gameObject.AddComponent<RollBackToStart>().Prepare(-3.3f);
+		PapaGameObject.AddComponent<RollBackToStart>().Prepare(-3.346683f);
 		
 		Canvas.gameObject.SetActive(true);
 		Canvas.gameObject.transform.GetChild(1).GetComponent<Text>().text = text;
 		
 		Scene scene = GameModel.Scenes[ActualScene];
 		PairsOnScene = scene.EnemiesCount;
-		CanAnimCurtains = false;
+
+		Canvas.gameObject.SetActive(true);
+		Curtain.AddComponent<AnimCurtains>().Prepare(Type.Close);
+
 		GameStarted = false;
 
-		Vector3 pos = Curtain.transform.GetChild(0).localPosition;
-		Curtain.transform.GetChild(0).localPosition = new Vector3( 0, 0, pos.z);
-		Curtain.transform.GetChild(1).localPosition = new Vector3(0, 0, pos.z);
 		foreach (ElementLayer el in ElementLayers)
 		{
 			el.gameObject.SetActive(false);
@@ -68,19 +65,13 @@ public class Game : MonoBehaviour
 			{
 				el.gameObject.SetActive(true);
 				el.Prepare(scene.Layers[el.LayerType]);
-			} 
+			}
 		}
 
-		int enemiesCount = scene.EnemiesCount;
-		foreach (PairLayer pr in PairLayers)
-		{
-			enemiesCount -= pr.Prepare(enemiesCount, scene.Words);
-		}
 		LandscapeRenderer.sprite = scene.Landscape;
 
-
-		Debug.Log("new scene prepared");
 		Preparing = false;
+		Debug.Log("new scene prepared");
 	}
 
 	void Update()
@@ -90,17 +81,9 @@ public class Game : MonoBehaviour
 			return;
 		}
 
-
-		if (CanAnimCurtains)
-		{
-			AnimCurtains();
-		}
-
 		if (Input.GetKeyDown (KeyCode.Space) && !GameStarted)
 		{
-			AudioSources[0].Play ();
-			AudioSources[1].Play ();
-			CanAnimCurtains=true;
+			StartGame();
 		}
 
 		if (Input.anyKeyDown && (string)Input.inputString != "" && GameStarted)
@@ -117,11 +100,7 @@ public class Game : MonoBehaviour
 			if (anyPairsLeft == false)
 			{
 				//end game
-				if(!newSceneInvoked)
-				{
-					Invoke("NewScene",1);
-					newSceneInvoked=true;
-				}
+				NewScene();
 			}
 		}
 
@@ -135,35 +114,35 @@ public class Game : MonoBehaviour
 			ActualScene = 0;
 		}
 		PrepareNewScene("Kolejny akt");
-		newSceneInvoked = false;
-	}
-
-	private void AnimCurtains(){
-		Canvas.gameObject.SetActive (false);
-
-	
-		if (Curtain.transform.GetChild(0).localPosition.x > -4.1f)
-		{
-			Curtain.transform.GetChild(0).transform.position -= new Vector3(0.1f, 0, 0);
-		}
-		if (Curtain.transform.GetChild(1).localPosition.x < 4.1f)
-		{
-			Curtain.transform.GetChild(1).transform.position += new Vector3(0.1f, 0, 0);
-		} else
-		{
-			StartGame();
-		}
-
 	}
 
 	private void StartGame()
 	{
-		PapaMover.enabled = true;
-		PapaMover.gameObject.transform.GetChild (0).gameObject.SetActive (true);
-		CanAnimCurtains = false;
-		PapaMover.Restart(GameModel.Scenes[ActualScene].Time);
-		GetComponent<CameraController>().Started = true;
+		Debug.Log("Start game");
+		Scene scene = GameModel.Scenes[ActualScene];
+		int enemiesCount = scene.EnemiesCount;
+		foreach (PairLayer pr in PairLayers)
+		{
+			enemiesCount -= pr.Prepare(enemiesCount, scene.Words);
+		}
+
+		AudioSources[0].Play();
+		AudioSources[1].Play();
+		if (Curtain.GetComponent<AnimCurtains>() != null)
+		{
+			Curtain.GetComponent<AnimCurtains>().Prepare(Type.Open);
+		} else
+		{
+			Curtain.AddComponent<AnimCurtains>().Prepare(Type.Open);
+		}
+		
+		Mover cc = gameObject.AddComponent<Mover>();
+		cc.Prepare(GameModel.Scenes[ActualScene].Time);
+
+		PapaGameObject.AddComponent<Mover>().Prepare(GameModel.Scenes[ActualScene].Time);
+
+		Canvas.gameObject.SetActive(false);
+
 		GameStarted = true;
 	}
-	
 }
